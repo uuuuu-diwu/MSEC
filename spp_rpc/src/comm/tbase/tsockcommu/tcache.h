@@ -21,7 +21,7 @@
 #define _TBASE_TSOCKCOMMU_TCACHE_H_
 #include "tmempool.h"
 #include "tsocket.h"
-#include "tcommu.h"
+#include "tbase/tcommu.h"
 #include <sys/time.h>
 
 namespace tbase

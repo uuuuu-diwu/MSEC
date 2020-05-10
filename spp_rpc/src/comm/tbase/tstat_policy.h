@@ -21,7 +21,7 @@
 #define _TBASE_TSTAT_POLICY_H_
 
 //#include <asm/atomic.h>
-#include "atomic.h"
+#include "tbase/atomic.h"
 #include <stdio.h>
 
 #define STAT_ID_MAX_LEN   64			//统计ID字符串最大长度

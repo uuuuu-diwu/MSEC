@@ -19,14 +19,14 @@
 
 #ifndef _SPP_INCL_H_
 #define _SPP_INCL_H_
-#include "spp_incl/spp_version.h"	//框架版本号
-#include "spp_incl/tlog.h"			//日志
-#include "spp_incl/tstat.h"			//统计
-#include "spp_incl/tcommu.h"		//通讯组件
-#include "spp_incl/serverbase.h"	//服务器容器
-#include "spp_incl/ICostStat.h"
-#include "spp_incl/monitor.h"
-#include "spp_incl/configini.h"
+#include "spp_version.h"	//框架版本号
+#include "tbase/tlog.h"			//日志
+#include "tbase/tstat.h"			//统计
+#include "tbase/tcommu.h"		//通讯组件
+#include "serverbase.h"	//服务器容器
+#include "stat_mgr/ICostStat.h"
+#include "monitor.h"
+#include "config/configini.h"
 
 #define GROUPID(x) (((x)|1<<31))
 

@@ -20,7 +20,7 @@
 #ifndef __STAT_COMDEF_H__
 #define __STAT_COMDEF_H__
 
-#include "atomic.h"
+#include "tbase/atomic.h"
 #include "global.h"
 
 #define BEGIN_SPP_STAT_NS namespace SPP_STAT_NS {

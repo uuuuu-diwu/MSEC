@@ -25,13 +25,13 @@
 #include <set>
 #include <map>
 
-#include "../comm/frame.h"
-#include "../comm/serverbase.h"
-#include "../comm/tbase/tshmcommu.h"
-#include "../comm/tbase/tsockcommu/tsockcommu.h"
-#include "../comm/benchapiplus.h"
-#include "../comm/singleton.h"
-#include "../comm_def.h"
+#include "frame.h"
+#include "serverbase.h"
+#include "tbase/tshmcommu.h"
+#include "tbase/tsockcommu/tsockcommu.h"
+#include "benchapiplus.h"
+#include "singleton.h"
+#include "comm_def.h"
 
 #define IPLIMIT_DISABLE		  0x0
 #define IPLIMIT_WHITE_LIST    0x1

@@ -24,7 +24,7 @@
 #include <string>
 #include <map>
 #include "inifile.h"
-#include "tlog.h"
+#include "tbase/tlog.h"
 #include "config.h"
 #include "configini.h"
 
@@ -547,12 +547,21 @@ int ConfigLoader::Init(const char *path)
     }
 
     // 获取业务名
-    ret = GetServiceName(config_.service);
-    if (ret < 0)
+    if (ini.hasKey(SPP_GROUP, "name"))
     {
-        config_.service = "default.default";
+        ret = ini.getValue(SPP_GROUP, "name", str);
+        if (ret != RET_OK)
+        {
+            printf("\nLoad reload (%s) failed\n", path);
+            return -13;
+        }
+        config_.service = str;
     }
-
+    else
+    {
+        printf("cant find name in section spp");
+        return -14;
+    }
 #if 0
     // 读取预加载nlb业务数据
     if (ini.hasKey(NLB_GROUP, "preload"))

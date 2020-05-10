@@ -38,25 +38,25 @@
 #include <errno.h>
 #include <stdarg.h>
 
-#include "tlog.h"
-#include "tcommu.h"
+#include "tbase/tlog.h"
+#include "tbase/tcommu.h"
 #include "serverbase.h"
 #include "comm_def.h"
 #include "frame.h"
-#include "defaultworker.h"
-#include "IFrameStat.h"
-#include "StatComDef.h"
+//#include "defaultworker.h"
+#include "stat_mgr/IFrameStat.h"
+#include "stat_mgr/StatComDef.h"
 
 #include "mt_msg.h"
 #include "mt_version.h"
 #include "micro_thread.h"
-
+#include "defaultworker.h"
 #include "SyncMsg.h"
 #include "SyncFrame.h"
 #include "monitor.h"
 
 using namespace std;
-using namespace spp::worker;
+
 using namespace spp::statdef;
 using namespace NS_MICRO_THREAD;
 using namespace SPP_SYNCFRAME;
@@ -172,7 +172,7 @@ public:
     	MONITOR_SET(attr, iValue);
 		
 		if (_base) {
-			CDefaultWorker* worker = (CDefaultWorker*)_base;
+			spp::worker::CDefaultWorker* worker = (spp::worker::CDefaultWorker*)_base;
 			switch(attr)
 			{			
 				case 492069://微线程池大小						

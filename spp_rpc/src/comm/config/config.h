@@ -25,7 +25,7 @@
 #include <vector>
 #include <map>
 #include "inifile.h"
-#include "tlog.h"
+#include "tbase/tlog.h"
 
 using namespace tbase::tlog;
 using namespace std;

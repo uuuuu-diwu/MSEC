@@ -27,14 +27,14 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include "../misc.h"
-#include "../../global.h"
-#include "../tlog.h"
-#include "../../singleton.h"
-#include "../../timestamp.h"
-#include "../tcommu.h"
-#include "../notify.h"
-#include "../monitor.h"
+#include "tbase/misc.h"
+#include "global.h"
+#include "tbase/tlog.h"
+#include "singleton.h"
+#include "timestamp.h"
+#include "tbase/tcommu.h"
+#include "tbase/notify.h"
+#include "monitor.h"
 #include "../../benchapiplus.h"
 
 #if !__GLIBC_PREREQ(2, 3)

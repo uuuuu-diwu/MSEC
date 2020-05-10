@@ -1,0 +1,42 @@
+include_directories(
+        .
+)
+
+add_library(
+        bench_adapter
+        benchadapter.cpp
+)
+
+add_library(
+        common
+
+        timerlist.cpp
+        frame.cpp
+        global.cpp
+        IPC.cpp
+        poller.cpp
+        serverbase.cpp
+        crc32.cpp
+        keygen.cpp
+        monitor.cpp
+        memqueue.cpp
+        shmcommu.cpp
+        tbase/tlog.cpp
+        tbase/misc.cpp
+        tbase/tprocmon.cpp
+        tbase/tshmcommu.cpp
+        tbase/tstat.cpp
+        tbase/notify.cpp
+        tbase/tsockcommu/tcache.cpp
+        tbase/tsockcommu/tconnset.cpp
+        tbase/tsockcommu/tepollflow.cpp
+        tbase/tsockcommu/tmempool.cpp
+        tbase/tsockcommu/tsockcommu.cpp
+        tbase/tsockcommu/tsocket.cpp
+        stat_mgr/ICostStat.cpp
+        stat_mgr/IFrameStat.cpp
+        stat_mgr/StatMgr.cpp
+        stat_mgr/StatMgrInstance.cpp
+        config/config.cpp
+        config/inifile.cpp
+)

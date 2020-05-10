@@ -24,7 +24,7 @@
 #include "srpc_log.h"
 #include "srpc_service.h"
 #include "logsys_api.h"
-#include "tlog.h"
+#include "tbase/tlog.h"
 
 using namespace std;
 using namespace srpc;

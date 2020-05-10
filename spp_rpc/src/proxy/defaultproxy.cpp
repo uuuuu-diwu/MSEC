@@ -41,7 +41,6 @@
 #include "../comm/config/config.h"
 #include "../comm/shmcommu.h"
 #include "../comm/timestamp.h"
-#include "srpc_log.h"
 
 #define PROXY_STAT_BUF_SIZE 1<<14
 
@@ -53,7 +52,6 @@ using namespace spp::global;
 using namespace spp::singleton;
 using namespace spp::statdef;
 using namespace tbase::notify;
-using namespace srpc;
 
 int g_spp_groupid;
 int g_spp_groups_sum;
@@ -213,12 +211,6 @@ int CDefaultProxy::loop()
         flog_.log_level(config.log.level);
         log_.log_level(config.log.level);
 
-        // 更新远程日志
-        CNgLogAdpt *rlog = (CNgLogAdpt *)GetRlog();
-        if (rlog->Init(ix_->argv_[1], servicename().c_str()))
-        {
-            flog_.LOG_P_PID(LOG_INFO, "Ngse rlog reload failed\n");
-        }
 
         last = now;
         config_mtime = mtime;
@@ -259,31 +251,17 @@ int CDefaultProxy::initconf(bool reload)
 
     MonitorRegist(monitor);
 
-    // 初始化SRPC远程日志
-    CNgLogAdpt *rlog = new CNgLogAdpt;
-    if (rlog->Init(ix_->argv_[1], config.service.c_str()))
-    {
-        printf("\n[ERROR] Ngse remote log init failed!!\n");
-        //exit(-1);
-    }
-
-    RegisterRLog(rlog);
-
-    // 初始化SRPC本地日志
-    CSppLogAdpt *llog = new CSppLogAdpt(this);
-    RegisterLlog(llog);
-
     groupid_       = 0;
     g_spp_groupid  = 0;
     g_spp_shm_fifo = 0;
 
     // 初始化日志
     Log& flog = config.log;
-    flog_.LOG_OPEN(flog.level, flog.type, "../log", "srpc_frame_proxy", flog.maxfilesize, flog.maxfilenum);
+    flog_.LOG_OPEN(flog.level, flog.type, "../log", "spp_frame_proxy", flog.maxfilesize, flog.maxfilenum);
 
     // 初始化业务日志
     Log& log = config.log;
-    log_.LOG_OPEN(log.level, log.type, "../log", "srpc_proxy", log.maxfilesize, log.maxfilenum);
+    log_.LOG_OPEN(log.level, log.type, "../log", "spp_proxy", log.maxfilesize, log.maxfilenum);
 
     // 初始化acceptor
     TSockCommuConf socks;
@@ -359,7 +337,7 @@ int CDefaultProxy::initconf(bool reload)
     LOG_SCREEN(LOG_ERROR, "Proxy[%5d] [Shm]Proxy->WorkerGroup[%d] [%dMB]...\n", pid, groupid, shm.shmsize_producer_/(1<<20));
     LOG_SCREEN(LOG_ERROR, "Proxy[%5d] [Shm]WorkerGroup[%d]->Proxy [%dMB]...\n", pid, groupid, shm.shmsize_comsumer_/(1<<20));
 
-
+    this->monilog_.log_open(tbase::tlog::LOG_INFO,0,"../moni","moni_",10241000,2);
     for (unsigned i = 0; i < shms.size(); ++i)
     {
         CTCommu* commu = NULL;

@@ -251,10 +251,9 @@ int CDefaultCtrl::initconf(bool reload)
 
     // 初始化日志
     Log& flog = config.log;
-    flog_.LOG_OPEN(flog.level, flog.type, "../log", "srpc_frame_ctrl", flog.maxfilesize, flog.maxfilenum);
+    flog_.LOG_OPEN(flog.level, flog.type, "../log", "spp_frame_ctrl", flog.maxfilesize, flog.maxfilenum);
 
     string progname = config.service;
-    progname[progname.find(".")] = '_';
 
     // groupinfo配置: proxy配置
     TGroupInfo      groupinfo;
@@ -268,7 +267,7 @@ int CDefaultCtrl::initconf(bool reload)
     groupinfo.affinity_         = -1;
 
     snprintf(groupinfo.basepath_, (sizeof(groupinfo.basepath_) - 1), ".");
-    snprintf(groupinfo.exefile_,  (sizeof(groupinfo.exefile_) - 1),  "srpc_%s_proxy", progname.c_str());
+    snprintf(groupinfo.exefile_,  (sizeof(groupinfo.exefile_) - 1),  "spp_%s_proxy", progname.c_str());
     snprintf(groupinfo.etcfile_,  (sizeof(groupinfo.etcfile_) - 1),  "%s", ix_->argv_[1]);
 
     if (!reload)
@@ -291,7 +290,7 @@ int CDefaultCtrl::initconf(bool reload)
     groupinfo.affinity_         = -1;
 
     snprintf(groupinfo.basepath_, (sizeof(groupinfo.basepath_) - 1), ".");
-    snprintf(groupinfo.exefile_,  (sizeof(groupinfo.exefile_) - 1),  "srpc_%s_worker", progname.c_str());
+    snprintf(groupinfo.exefile_,  (sizeof(groupinfo.exefile_) - 1),  "spp_%s_worker", progname.c_str());
     snprintf(groupinfo.etcfile_,  (sizeof(groupinfo.etcfile_) - 1),  "%s", ix_->argv_[1]);
 
     // 清理共享内存

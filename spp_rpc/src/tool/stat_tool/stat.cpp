@@ -34,7 +34,7 @@
  */
 #include <stdio.h>
 #include <string.h>
-#include "tstat.h"
+#include "tbase/tstat.h"
 
 #define STAT_BUF_SIZE 1<<14
 

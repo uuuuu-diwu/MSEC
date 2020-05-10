@@ -26,11 +26,11 @@
 #include <stdio.h>
 #include <errno.h>
 #include "tshmcommu.h"
-#include "misc.h"
-#include "atomic.h"
+#include "tbase/misc.h"
+#include "tbase/atomic.h"
 #include <stdlib.h>
-#include "hide_private_tp.h"
-#include "hex_dump.h"
+#include "tbase/hide_private_tp.h"
+#include "tbase/hex_dump.h"
 
 #include "../global.h"
 #include "../comm_def.h"

@@ -1,0 +1,19 @@
+ENABLE_LANGUAGE( ASM)
+add_library(
+        spp_micro_thread
+        micro_thread.cpp 
+        epoll_proxy.cpp 
+        arch_ctx.S
+        mt_session.cpp
+        mt_notify.cpp 
+        mt_action.cpp 
+        mt_mbuf_pool.cpp 
+        mt_api.cpp
+        mt_connection.cpp 
+        mt_concurrent.cpp 
+        mt_sys_hook.cpp 
+        heap_timer.cpp  
+        mt_cache.cpp  
+        mt_net.cpp 
+        mt_capi.cpp
+)

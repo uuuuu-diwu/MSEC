@@ -23,9 +23,9 @@
 #include <unistd.h>
 #include <signal.h>
 #include <string>
-#include "tlog.h"			//日志
-#include "tstat.h"			//统计
-#include "tprocmon.h"		//监控
+#include "tbase/tlog.h"			//日志
+#include "tbase/tstat.h"			//统计
+#include "tbase/tprocmon.h"		//监控
 
 using namespace std;
 

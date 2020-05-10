@@ -22,14 +22,14 @@
 #include<string>
 #include<vector>
 #include <map>
-#include "../comm/frame.h"
-#include "../comm/serverbase.h"
-#include"../comm/comm_def.h"
-#include "../comm/tbase/hide_private_tp.h"
-#include "../comm/tbase/tcommu.h"
-#include "../comm/tbase/tshmcommu.h"
-#include "../comm/tbase/hide_private_tp.h"
-#include "StatComDef.h"
+#include "frame.h"
+#include "serverbase.h"
+#include"comm_def.h"
+#include "tbase/hide_private_tp.h"
+#include "tbase/tcommu.h"
+#include "tbase/tshmcommu.h"
+#include "tbase/hide_private_tp.h"
+#include "stat_mgr/StatComDef.h"
 using namespace::std;
 using namespace spp::comm;
 using namespace tbase::tcommu;

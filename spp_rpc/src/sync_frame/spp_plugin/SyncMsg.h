@@ -30,7 +30,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <string>
-#include "tcommu.h"
+#include "tbase/tcommu.h"
 #include "serverbase.h"
 
 #include "mt_incl.h"

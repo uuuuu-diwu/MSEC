@@ -19,7 +19,7 @@
 
 #ifndef HIDE_PRIVATE_TP
 #define HIDE_PRIVATE_TP
-#include "atomic.h"
+#include "tbase/atomic.h"
 
 #define ALL_MAX_PROC 2001
 

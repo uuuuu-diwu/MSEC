@@ -31,7 +31,7 @@
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <stdlib.h>
-#include "atomic.h"
+#include "tbase/atomic.h"
 #include <time.h>
 #include <signal.h>
 

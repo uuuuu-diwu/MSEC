@@ -24,28 +24,28 @@
 #include <sys/ipc.h>
 
 #include "defaultworker.h"
-#include "misc.h"
+
 #include "benchadapter.h"
-#include "misc.h"
+#include "tbase/misc.h"
 #include "global.h"
 #include "singleton.h"
 
 #include "comm_def.h"
 
-#include "../comm/keygen.h"
-#include "../comm/tbase/list.h"
-#include "../comm/tbase/notify.h"
-#include "../comm/tbase/tsockcommu/tsocket.h"
-#include "../comm/tbase/misc.h"
-#include "../comm/monitor.h"
-#include "../comm/timestamp.h"
-#include "../comm/config/config.h"
-#include "../comm/shmcommu.h"
+#include "keygen.h"
+#include "tbase/list.h"
+#include "tbase/notify.h"
+#include "tbase/tsockcommu/tsocket.h"
+#include "tbase/misc.h"
+#include "monitor.h"
+#include "timestamp.h"
+#include "config/config.h"
+#include "shmcommu.h"
 #include "exception.h"
 #include "memlog.h"
 
-#include "StatMgr.h"
-#include "StatMgrInstance.h"
+#include "stat_mgr/StatMgr.h"
+#include "stat_mgr/StatMgrInstance.h"
 #include "srpc_log.h"
 #include "SyncFrame.h"
 
@@ -61,7 +61,7 @@ using namespace spp::singleton;
 using namespace spp::statdef;
 using namespace std;
 using namespace tbase::notify;
-using namespace srpc;
+//using namespace srpc;
 
 using namespace SPP_SYNCFRAME;
 USING_SPP_STAT_NS;
@@ -159,12 +159,12 @@ int CDefaultWorker::loop()
         flog_.log_level(config.log.level);
         log_.log_level(config.log.level);
 
-        // 更新远程日志配置
-        CNgLogAdpt *rlog = (CNgLogAdpt *)GetRlog();
-        if (rlog->Init(ix_->argv_[1], servicename().c_str()))
-        {
-            flog_.LOG_P_PID(LOG_INFO, "Ngse rlog reload failed\n");
-        }
+//        // 更新远程日志配置
+//        CNgLogAdpt *rlog = (CNgLogAdpt *)GetRlog();
+//        if (rlog->Init(ix_->argv_[1], servicename().c_str()))
+//        {
+//            flog_.LOG_P_PID(LOG_INFO, "Ngse rlog reload failed\n");
+//        }
 
         last = now;
         config_mtime = mtime;
@@ -328,19 +328,19 @@ int CDefaultWorker::initconf(bool reload)
 
     MonitorRegist(monitor);
 
-    // 初始化SRPC远程日志
-    CNgLogAdpt *rlog = new CNgLogAdpt;
-    if (rlog->Init(ix_->argv_[1], config.service.c_str()))
-    {
-        printf("\n[ERROR] Ngse remote log init failed!!\n");
-        //exit(-1);
-    }
-
-    RegisterRLog(rlog);
-
-    // 初始化SRPC本地日志
-    CSppLogAdpt *llog = new CSppLogAdpt(this);
-    RegisterLlog(llog);
+//    // 初始化SRPC远程日志
+//    CNgLogAdpt *rlog = new CNgLogAdpt;
+//    if (rlog->Init(ix_->argv_[1], config.service.c_str()))
+//    {
+//        printf("\n[ERROR] Ngse remote log init failed!!\n");
+//        //exit(-1);
+//    }
+//
+//    RegisterRLog(rlog);
+//
+//    // 初始化SRPC本地日志
+//    CSppLogAdpt *llog = new CSppLogAdpt(this);
+//    RegisterLlog(llog);
 
     printf("Worker[%5d] Groupid = %d\n", pid, groupid_);
 

@@ -31,11 +31,12 @@
 #include <sys/mman.h>
 #include "../singleton.h"
 #include "tprocmon.h"
+#include "tshmcommu.h"
 #include "../serverbase.h"
-#include "../monitor.h"
-#include "../../proxy/defaultproxy.h"
-#include "../../worker/defaultworker.h"
-#include "misc.h"
+#include "monitor.h"
+//#include "../../proxy/defaultproxy.h"
+//#include "../../worker/defaultworker.h"
+#include "tbase/misc.h"
 #include "../global.h"
 #include "hide_private_tp.h"
 
@@ -53,9 +54,9 @@ using namespace spp::global;
 using namespace spp;
 using namespace std;
 using namespace tbase::tlog;
-using namespace spp::worker;
-using namespace spp::proxy;
-using namespace spp::statdef;
+//using namespace spp::worker;
+//using namespace spp::proxy;
+//using namespace spp::statdef;
 using namespace spp::comm;
 
 //static bool unused = do_recv(0); //recv all message at start, discard some expired client message
@@ -498,7 +499,7 @@ bool CTProcMonSrv::check_groupbusy(int groupid)
     TProcGroupObj* groupobj = &proc_groups_[groupid];
     TGroupInfo* group = &(groupobj->groupinfo_);
 
-    if ((Q_STATINFO*)group->q_recv_pstat == NULL)
+    if ((tshmcommu::Q_STATINFO*)group->q_recv_pstat == NULL)
     {
         if (group->groupid_ == 0)
         {
@@ -533,7 +534,7 @@ bool CTProcMonSrv::check_groupbusy(int groupid)
         group->q_recv_pstat = pinfo;
     }
 
-    Q_STATINFO* q_recv_pstat = (Q_STATINFO*)group->q_recv_pstat;
+    tshmcommu::Q_STATINFO* q_recv_pstat = (tshmcommu::Q_STATINFO*)group->q_recv_pstat;
     int msg_count;
     msg_count = atomic_read(&(q_recv_pstat->msg_count));
 

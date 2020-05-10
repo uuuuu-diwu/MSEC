@@ -19,11 +19,11 @@
 
 #ifndef _TBASE_TSOCKCOMMU_H_
 #define _TBASE_TSOCKCOMMU_H_
-#include "atomic.h"
+#include "tbase/atomic.h"
 #include <time.h>
 #include <vector>
 #include <map>
-#include "../tcommu.h"
+#include "tbase/tcommu.h"
 
 using namespace tbase::tcommu;
 

@@ -25,12 +25,12 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include "../misc.h"
-#include "../tlog.h"
-#include "../../timestamp.h"
-#include "../../global.h"
-#include "../../singleton.h"
-#include "../monitor.h"
+#include "tbase/misc.h"
+#include "tbase/tlog.h"
+#include "timestamp.h"
+#include "global.h"
+#include "singleton.h"
+#include "monitor.h"
 
 using namespace spp::singleton;
 using namespace tbase::tlog;

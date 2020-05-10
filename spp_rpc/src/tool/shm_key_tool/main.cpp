@@ -42,7 +42,7 @@
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include "keygen.h"
-#include "config.h"
+#include "config/config.h"
 
 #define COLOR_GREEN "\e[1m\e[32m"
 #define COLOR_RED   "\e[1m\e[31m"

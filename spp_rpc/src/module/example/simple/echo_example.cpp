@@ -18,11 +18,27 @@
 
 
 //必须包含spp的头文件
-#include "sppincl.h"
+
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include "spp_version.h"	//框架版本号
+#include "tbase/tlog.h"			//日志
+#include "tbase/tstat.h"			//统计
+#include "tbase/tcommu.h"		//通讯组件
+#include "serverbase.h"	//服务器容器
+#include "stat_mgr/ICostStat.h"
+#include "monitor.h"
+#include "config/configini.h"
 
+#define GROUPID(x) (((x)|1<<31))
+
+using namespace tbase::tlog;
+using namespace tbase::tstat;
+using namespace tbase::tcommu;
+using namespace spp::comm;
+using namespace spp::comm;
+using namespace SPP_STAT_NS;
 //格式化时间输出
 char *format_time( time_t tm);
 

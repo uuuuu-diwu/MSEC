@@ -19,7 +19,7 @@
 
 #include <string.h>
 #include "tcache.h"
-#include "tlog.h"
+#include "tbase/tlog.h"
 #include "global.h"
 #include "singleton.h"
 
