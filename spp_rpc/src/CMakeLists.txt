@@ -1,6 +1,6 @@
 project(spp_rpc)
 
-cmake_minimum_required(VERSION 3.6.2)
+cmake_minimum_required(VERSION 3.5.1)
 include_directories(
         comm
         internal/monitor/include

@@ -38,7 +38,7 @@
 #include <errno.h>
 #include <string>
 #include <iostream>
-#include "StatComDef.h"
+#include "stat_mgr/StatComDef.h"
 using namespace std;
 USING_SPP_STAT_NS;
 #define COLOR_GREEN "\e[1m\e[32m"

@@ -247,7 +247,7 @@ int CDefaultCtrl::initconf(bool reload)
 
     Config& config = loader.GetConfig();
 
-    set_servicename(config.service);
+    //set_servicename(config.service);
 
     // 初始化日志
     Log& flog = config.log;
@@ -419,8 +419,7 @@ int CDefaultCtrl::reloadconf()
     groupinfo.affinity_         = -1;
 
     snprintf(groupinfo.basepath_, (sizeof(groupinfo.basepath_) - 1), ".");
-    //snprintf(groupinfo.exefile_,  (sizeof(groupinfo.exefile_) - 1),  "spp_%s_worker", config.service.c_str());
-    snprintf(groupinfo.exefile_,  (sizeof(groupinfo.exefile_) - 1),  "spp_worker");
+    snprintf(groupinfo.exefile_,  (sizeof(groupinfo.exefile_) - 1),  "spp_%s_worker", config.service.c_str());
     snprintf(groupinfo.etcfile_,  (sizeof(groupinfo.etcfile_) - 1),  "%s", ix_->argv_[1]);
 
 	// 设置状态为待热重启状态
