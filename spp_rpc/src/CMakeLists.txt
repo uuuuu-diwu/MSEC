@@ -65,12 +65,12 @@ add_subdirectory(
 )
 
 add_library(
-        echo
+        echo_svr
         SHARED
         module/example/simple/echo_example.cpp
 )
 
 target_link_libraries(
-        echo
+        echo_svr
         common
 )

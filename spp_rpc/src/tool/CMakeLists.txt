@@ -14,12 +14,12 @@ add_executable(
 )
 
 add_executable(
-        stat
+        stat_tool
         stat_tool/stat.cpp
 )
 
 target_link_libraries(
-        stat
+        stat_tool
         common
 )
 
